@@ -6,7 +6,7 @@
         ((not (pair? ls)) (list ls))
         (else (append (flatten (car ls)) (flatten (cdr ls))))))
 
-(define ($ . lis)
+(define (<main> . lis)
   (apply print
          (flatten lis)))
 
@@ -42,9 +42,11 @@
         (write s)))))
 
 (define-macro (% . args)
-  `(list ,@(apply read-symols args) "\n"))
-(define-macro (%* . args)
-  `(list ,@(apply read-symols args)))
+  `(list  "\n"
+          ,@(apply read-symols args)))
+(define-macro (>> . args)
+  `(list " "
+         ,@(apply read-symols args)))
 
 (define (variable? s)
     (and (symbol? s)
