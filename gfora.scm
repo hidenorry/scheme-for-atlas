@@ -89,11 +89,7 @@
   (letrec ((rec (lambda (l acc)
                   (if (null? l)
                       (reverse acc)
-                      (if (symbol? (car l))
-                          (rec (cdr l) (cons (symbol->string (car l)) acc))
-                          (rec (cdr l) (cons (car l) acc)))))))
+                      (if (string? (car l))
+                          (rec (cdr l) (cons (car l) acc))
+                          (rec (cdr l) (cons (x->string (car l)) acc)))))))
           (apply string-append (rec lis '()))))
-
-(read-symols 'a '$b 'c)
-
-
