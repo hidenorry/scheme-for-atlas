@@ -7,7 +7,7 @@
 #     echo "You enter no"
 # fi
 echo_warn (){
-    message=$1
+    local message=$1
     echo -n "#######" "  "
     echo -n ${message}
     echo    "  " "#######"
@@ -30,7 +30,7 @@ check_yes (){
 }
 
 over_write_check() {
-    over_write_file=$1
+    local over_write_file=$1
     if [ -f ${over_write_file} ]; then
         echo_warn "| ${over_write_file} | exists. Over write?"
         if check_yes; then
@@ -45,9 +45,9 @@ over_write_check() {
 }
 
 exec_in () {
-  file=${1%.in}
-  input_file=${file}.in
-  output_file=${file}.out
+  local file=${1%.in}
+  local input_file=${file}.in
+  local output_file=${file}.out
 
   if over_write_check ${output_file}; then
       echo_warn "deckbuild -run -ascii -as ${input_file} -outfile ${output_file}"
@@ -60,9 +60,9 @@ exec_in () {
 
 exec_scm () {
     local atlas_syntax_file="${HOME}/apl/at/gfora.scm"
-    file=${1%.scm}
-    pre_input_file=${file}.scm
-    input_file=${file}.in
+    local file=${1%.scm}
+    local pre_input_file=${file}.scm
+    local input_file=${file}.in
 
     if [ -f  $atlas_syntax_file ]; then
         if over_write_check ${input_file}; then
@@ -89,9 +89,9 @@ exec_scm () {
 file=$1
 extension=${file##*.}
 if [ ${extension} == "in" ]; then
-    exec_in $1
+    exec_in $file
 elif [ ${extension} == "scm" ]; then
-    exec_scm $1
+    exec_scm $file
 else
     echo_warn "Unkown extension is used in | ${file} |."
     exit 1
