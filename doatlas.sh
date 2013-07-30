@@ -50,8 +50,9 @@ exec_in () {
   local output_file=${file}.out
 
   if over_write_check ${output_file}; then
-      echo_warn "deckbuild -run -ascii -as ${input_file} -outfile ${output_file}"
-      deckbuild -run -ascii -as ${input_file} -outfile ${output_file}
+      aux_doatlas.sh ${input_file}
+      #echo_warn "deckbuild -run -ascii -as ${input_file} -outfile ${output_file}"
+      #deckbuild -run -ascii -as ${input_file} -outfile ${output_file}
   else
       echo_warn "job was canceled."
       exit 1
