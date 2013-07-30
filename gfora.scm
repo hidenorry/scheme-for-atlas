@@ -19,6 +19,12 @@
 (define-macro (define-block name&var . body)
   `(define ,name&var (list ,@body)))
 
+(define-macro (define-atlas-block name&vars . body)
+  (let ((fname (car name&vars))
+        (fvars (cdr name&vars)))
+    `(define (,(symbol-append '! fname) ,@fvars)
+       (list ,@body))))
+
 (define-macro (loop variables nums . body)
   `(map (lambda (,variables) (list ,@body))
         ,nums))
