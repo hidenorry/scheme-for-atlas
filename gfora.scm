@@ -53,6 +53,8 @@
 (define-macro (>> . args)
   `(list " "
          ,@(apply read-symols args)))
+(define-macro (<start> . args)
+  `(list ,@(apply read-symols args)))
 
 (define (variable? s)
     (and (symbol? s)
