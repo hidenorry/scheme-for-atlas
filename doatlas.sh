@@ -61,6 +61,7 @@ exec_in () {
 
 exec_scm () {
     local atlas_syntax_file="${HOME}/apl/at/gfora.scm"
+    local atlas_tools_file="${HOME}/apl/at/tools.scm"
     local file=${1%.scm}
     shift
     local options="$@"
@@ -69,7 +70,7 @@ exec_scm () {
 
     if [ -f  $atlas_syntax_file ]; then
         if over_write_check ${input_file}; then
-            gosh -l ${atlas_syntax_file} ${pre_input_file} ${options} > ${input_file} 
+            gosh -l ${atlas_syntax_file} -l ${atlas_tools_file} ${pre_input_file} ${options} > ${input_file} 
         else
             echo_warn "${input_file} was not overwritten."
             echo_warn "job was canceled."
