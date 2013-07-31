@@ -32,6 +32,8 @@
 (define-macro (local var . body)
   `(let ,var (list ,@body)))
 
+(define-macro (local* var . body)
+  `(let* ,var (list ,@body)))
 
 (define (symbols->string  . args)
   (with-output-to-string 
