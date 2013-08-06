@@ -1,5 +1,14 @@
+#!/usr/bin/env
+
+(define-module gfora
+  (push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
+  (use scheme-for-atlas-debug)
+  (export-all))
+(select-module gfora)
+
 (use slib)
 (require 'format)
+
 
 (define (flatten ls)
   (cond ((null? ls) '())
