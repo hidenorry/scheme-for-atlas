@@ -46,6 +46,9 @@
           (dolist (s args)
             (format #t " ~s " s))))))
 
+(define (symbol-append . syms)
+  (string->symbol (apply mkstr syms)))
+
 (define (mkstr  . args)
   (with-output-to-string 
     (lambda ()
