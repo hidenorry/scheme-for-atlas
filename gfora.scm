@@ -17,7 +17,10 @@
 
 (define (<main> . lis)
   (apply print
-         (flatten lis)))
+         (flatten
+          (file-name-check lis)
+          ;; lis
+          )))
 
 (define (&quit)
   ($ #`"quit"))

@@ -38,7 +38,7 @@
                           (if (member (car it) (cdr it))
                               (rec (cdr lis) acc)
                               (rec (cdr lis) (cons (car lis) acc)))
-                          (rec (cdr lis) (cons (car lis) acc)))
+                          (rec (cdr lis) acc))
                       acc))))
     (let ((result (rec lis '())))
       (if (null? result)
