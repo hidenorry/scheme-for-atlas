@@ -77,7 +77,7 @@
       (if (null? args)
           (format #t "")
           (dolist (s args)
-            (format #t " ~s " s))))))
+            (format #t " ~a " s))))))
 
 (define (symbol-append . syms)
   (string->symbol (apply mkstr syms)))
