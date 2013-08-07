@@ -1,7 +1,7 @@
 #!/usr/bin/env gosh
 
+(push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
 (define-module scheme-for-atlas-debug
-  (push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
   (use srfi-1)
   (use srfi-13)
   (use slib-wrapper)

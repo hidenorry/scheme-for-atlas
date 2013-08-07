@@ -1,7 +1,7 @@
 #!/usr/bin/env
 
+(push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
 (define-module gfora
-  (push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
   (use scheme-for-atlas-debug)
   (use slib-wrapper)
   (export <main>
