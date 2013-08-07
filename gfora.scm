@@ -3,7 +3,28 @@
 (define-module gfora
   (push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
   (use scheme-for-atlas-debug)
-  (export-all))
+  (export <main>
+          &quit
+          <-
+          &&
+          define-block
+          define-atlas-block
+          loop
+          local
+          local*
+          block
+          symbols->string
+          symbol-append
+          mkstr
+          %
+          >>
+          <start>
+          variable?
+          remove-from-top
+          read-symols
+          var-append
+   ))
+
 (select-module gfora)
 
 (use slib)
