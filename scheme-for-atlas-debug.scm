@@ -4,12 +4,9 @@
   (push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
   (use srfi-1)
   (use srfi-13)
+  (use slib-wrapper)
   (export file-name-check))
 (select-module scheme-for-atlas-debug)
-
-
-(use slib)
-(require 'format)
 
 (define (invoke-error)
   (error "debug error"))

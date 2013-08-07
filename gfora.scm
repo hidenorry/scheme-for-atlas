@@ -3,6 +3,7 @@
 (define-module gfora
   (push! *load-path* (string-append (sys-getenv "HOME") "/apl/at"))
   (use scheme-for-atlas-debug)
+  (use slib-wrapper)
   (export <main>
           &quit
           <-
@@ -24,12 +25,7 @@
           read-symols
           var-append
    ))
-
 (select-module gfora)
-
-(use slib)
-(require 'format)
-
 
 (define (flatten ls)
   (cond ((null? ls) '())
